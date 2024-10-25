@@ -1,1 +1,1 @@
-# Numerical_lab_assignment
+# Numerical_Lab_Assignment
