@@ -1,14 +1,14 @@
 #include <bits/stdc++.h>
 #include "2107014.cpp"
 #include "commoner02-2107116.cpp"
-
+#include "2107104.cpp"
 using namespace std;
 
 
 
 int main()
 {
-      int choice;
+    int choice;
     while (true) {
         cout << "\nNumerical Methods Application\n";
         cout << "1. Solution of Linear Equations\n";
@@ -25,7 +25,6 @@ int main()
                 break;
             case 2:
               Non_lin_main();
-                
                 break;
             case 3:
                shuvo_main(3);
