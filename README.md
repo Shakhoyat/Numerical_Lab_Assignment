@@ -269,6 +269,38 @@ A = LU
 
 
 
+# Solution Differential Eqaution 
+1. ## Runge-Kutta Method
+
+Here is implementation of the classic fourth-order Runge-Kutta method (RK4) for solving ordinary differential equations. This method uses a weighted average of four increments to estimate the solution with higher accuracy.
+
+The main steps of the RK4 method are:
+
+**a. Calculate the initial conditions**: Determine the starting values for \( x \) and \( y \).<br/>
+**b. Estimate the four increments (slopes)**:  
+
+   - \( k1 \): Calculate the slope at the initial point.
+   - \( k2 \): Calculate the slope at the midpoint using \( k1 \).
+   - \( k3 \): Calculate another midpoint slope using \( k2 \).
+   - \( k4 \): Calculate the slope at the end of the interval using \( k3 \).
+     
+**c. Combine the slopes**: Use a weighted average of these four slopes to estimate the value of \( y \) at the next step.<br/>
+**d. Repeat the process**: Move to the next interval and repeat the calculations to trace out the entire path of the solution.
+
+This iterative process provides a highly accurate approximation of the solution to the differential equation.
+
+# Matrix Inversion
+
+For matrix inversion, the implemententation was done by the Gauss-Jordan Elimination method, which is straightforward and effective.
+
+Here's the process:
+
+**a. Forming an Augmented Matrix**: Start by placing the original matrix side-by-side with an identity matrix.<br/>
+**b. Applying Gauss-Jordan Elimination**: This step involves transforming the original matrix into an identity matrix through a series of row operations.<br/>
+**c. Simultaneous Transformation**: While the original matrix is being transformed into an identity matrix, the identity matrix undergoes the same row operations, gradually turning into the inverse of the original matrix.<br/>
+
+While this method has a time complexity of \( O(n^3) \) (with \( n \) being the order of the square matrix), it is intuitive and highly effective for many practical applications, even if it's not the fastest option for very large matrices.
+
 
 ### So, We can Conclude that
 
