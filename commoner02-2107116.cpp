@@ -179,10 +179,9 @@ void matrixInverse() {
     }
 }
 
-int main() {
-    int c;
-    cin>>c;
+int shuvo_main(int c) {
     if(c==3){
+       cout<<"1.Runge-Kutta Method"<<endl;
        rungeKutta();
     }
     if(c==4){
