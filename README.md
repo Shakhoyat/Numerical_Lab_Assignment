@@ -268,7 +268,7 @@ This method finds a root of the function by repeatedly narrowing down an interva
    - If \( $f(a)$ \) and \($f(\text{midpoint})$ \) have opposite signs, set \($b = \text{midpoint}$\).
    - Otherwise, set \($a = \text{midpoint}$\).
 5. **Repeat**: Continue this process until the interval is sufficiently small or the maximum number of iterations is reached.
-   ...............................................................................................................
+...............................................................................................................
 
 ### 2. False Position Method
 
@@ -281,7 +281,7 @@ This method is a faster alternative to the Bisection Method, using linear interp
    - If \($f(\text{guess})$\) has the same sign as \($f(a)$\), set$a =\text{guess}$.
    - Otherwise, set $b = \text{guess}$.
 4. **Convergence Check**: Stop if $|f(\text{guess})| < kTolerance$.
-   ...............................................................................................................
+...............................................................................................................
 
 ### 3. Secant Method
 
@@ -292,7 +292,7 @@ The Secant Method approximates roots using secant lines instead of derivatives.
    $$x_2 = x_1 - \frac{f(x_1) \cdot (x_1 - x_0)}{f(x_1) - f(x_0)}$$
 3. **Update**: Move \($x_0$\) to \($x_1$\) and \($x_1$\) to \($x_2$\).
 4. **Convergence Check**: Stop if \($|x_2 - x_1| < kTolerance$\).
-   ...............................................................................................................
+...............................................................................................................
 
 ### 4. Newton-Raphson Method
 
