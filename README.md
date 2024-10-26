@@ -278,7 +278,7 @@ This method is a faster alternative to the Bisection Method, using linear interp
 2. **Linear Interpolation**: Calculate the new guess for the root:
    $$\text{guess} = \frac{a \cdot f(b) - b \cdot f(a)}{f(b) - f(a)}$$
 3. **Update Interval**: Check where the sign change occurs:
-   - If $f(\text{guess})$ has the same sign as $f(a)$, set$a =\text{guess}$.
+   - If $f(\text{guess})$ has the same sign as $f(a)$, set $ a =\text{guess}$.
    - Otherwise, set $b = \text{guess}$.
 4. **Convergence Check**: Stop if $|f(\text{guess})| < kTolerance$.
 ...............................................................................................................
