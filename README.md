@@ -267,8 +267,8 @@ This method finds a root of the function by repeatedly narrowing down an interva
 4. **Narrow the Interval**: Determine which half of the interval contains the root:
    - If \( $f(a)$ \) and \($f(\text{midpoint})$ \) have opposite signs, set \($b = \text{midpoint}$\).
    - Otherwise, set \($a = \text{midpoint}$\).
-5. **Repeat**: Continue this process until the interval is sufficiently small or the maximum number of iterations is reached.
-...............................................................................................................
+5. **Repeat**: Continue this process until the interval is sufficiently small or the maximum number of iterations is reached
+................................................................................................................
 
 ### 2. False Position Method
 
