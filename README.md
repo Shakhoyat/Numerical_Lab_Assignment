@@ -263,7 +263,7 @@ This method finds a root of the function by repeatedly narrowing down an interva
 1. **Check Interval**: Ensure that the function values at the endpoints `f(a)` and `f(b)` have opposite signs (`f(a) * f(b) < 0`). This indicates that a root lies between `a` and `b`.
 2. **Calculate Midpoint**: Compute the midpoint of the interval:
    $$\text{midpoint} = \frac{a + b}{2}$$
-3. **Check Midpoint**: If \($f(\text{midpoint})$\) is zero, you've found the root!
+3. **Check Midpoint**: If $f(\text{midpoint})$ is zero, you've found the root!
 4. **Narrow the Interval**: Determine which half of the interval contains the root:
    - If \( $f(a)$ \) and \($f(\text{midpoint})$ \) have opposite signs, set \($b = \text{midpoint}$\).
    - Otherwise, set \($a = \text{midpoint}$\).
@@ -278,7 +278,7 @@ This method is a faster alternative to the Bisection Method, using linear interp
 2. **Linear Interpolation**: Calculate the new guess for the root:
    $$\text{guess} = \frac{a \cdot f(b) - b \cdot f(a)}{f(b) - f(a)}$$
 3. **Update Interval**: Check where the sign change occurs:
-   - If \($f(\text{guess})$\) has the same sign as \($f(a)$\), set$a =\text{guess}$.
+   - If $f(\text{guess})$ has the same sign as $f(a)$, set$a =\text{guess}$.
    - Otherwise, set $b = \text{guess}$.
 4. **Convergence Check**: Stop if $|f(\text{guess})| < kTolerance$.
 ...............................................................................................................
@@ -298,7 +298,7 @@ The Secant Method approximates roots using secant lines instead of derivatives.
 
 This method is powerful for finding roots but requires the derivative of the function.
 
-1. **Derivative Requirement**: Ensure you have the function's derivative \($f'(x)$\).
+1. **Derivative Requirement**: Ensure you have the function's derivative $f'(x)$
 2. **Iteration Formula**:
    $$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$$
 3. **Update**: Set
