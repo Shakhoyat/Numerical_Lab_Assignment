@@ -65,6 +65,7 @@ void rungeKutta() {
             };
             break;
     }
+    cout<<"\nValues of x and y :"<<endl;
     int n = (int)((x - x0) / h);
     double k1, k2, k3, k4;
     double y = y0;
@@ -79,6 +80,8 @@ void rungeKutta() {
         x0 = x0 + h;
         cout << x0 << "\t" << y << endl; // Show x and y at every step
     }
+
+    cout<<" At x = " << x << ",  y = " << y << endl;
 }
 
 
@@ -179,9 +182,10 @@ void matrixInverse() {
     }
 }
 
+
 int shuvo_main(int c) {
     if(c==3){
-       cout<<"\n1.Runge-Kutta Method"<<endl;
+       cout<<"\n 1.Runge-Kutta Method"<<endl;
        rungeKutta();
     }
     if(c==4){
