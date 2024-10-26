@@ -1,2 +1,275 @@
-# Numerical_Lab_Assignment
-git 
+# Numerical Methods Console Application
+
+## Overview
+
+Welcome to the Numerical Methods Console Application! This project provides various numerical methods for solving mathematical problems, making it a versatile tool for anyone interested in numerical analysis.
+
+### Key Features
+
+1. **Solve Linear Equations**
+
+   - Several techniques to handle systems of linear equations:
+     - **Jacobi Method**: An iterative approach where we make guesses until the variables converge to a solution.
+     - **Gauss-Seidel Method**: Similar to Jacobi but it updates the variables immediately for faster convergence than Jacobi Method.
+     - **Gauss Elimination**: Transforms the system into an upper triangular form for solving.
+     - **Gauss-Jordan Elimination**: A more modified version of Gauss Elimination that directly reveals the solutions.
+     - **LU Factorization**: Decomposes a matrix into two simpler matrices for efficient computation.
+
+2. **Solve Non-Linear Equations**
+
+   - Methods designed to find roots of non-linear equations:
+     - **Bisection Method**: Narrows down an interval to find a root by checking the function’s values at both ends.
+     - **False Position Method**: Similar to Bisection but employs linear interpolation for quicker convergence.
+     - **Secant Method**: Utilizes two initial guesses to find the root without needing derivatives.
+     - **Newton-Raphson Method**: Uses a function’s derivative to accelerate root finding.
+
+3. **Solve Differential Equations**
+
+   - **Runge-Kutta Method (RK4)**: A step-by-step approach for approximating solutions to ordinary differential equations.
+
+4. **Matrix Inversion**
+   - **Gauss-Jordan Elimination**: Finds the inverse of a matrix by transforming it into a simpler form.
+
+---
+
+## Linear Algorithmic Details
+
+## 1. Jacobi Iterative Method
+
+### Description
+
+The Jacobi method is an iterative algorithm used to solve a system of linear equations of the form **Ax = b**. It is particularly useful for large systems and can converge particularly when the coefficient matrix \( A \) is diagonally dominant.
+
+### Algorithm Steps
+
+1. **Initialization**:
+   - Start with an initial guess for the solution vector \( x \) (commonly \( x = 0 \)).
+2. **Iteration**:
+
+   - For each variable
+
+     $$
+     x_i:
+
+       x_i^{(k+1)} = \frac{1}{A_{ii}} \left( b_i - \sum_{j \neq i} A_{ij} x_j^{(k)} \right)
+
+
+     $$
+
+   - Repeat the process until convergence (i.e., until the change in \( x \) is below a specified tolerance).
+
+3. **Convergence Check**:
+   - After each iteration, the difference between the current and previous estimates of \( x \) is checked to be less than the defined tolerance value.
+
+### Input
+
+- **Matrix \( A \)**: Coefficient matrix (must be square and diagonally dominant for guaranteed convergence).
+- **Vector \( b \)**: Constants vector (the same length as the number of rows in \( A \)).
+- **max_iterations**: Maximum number of iterations (default is 1000).
+- **tolerance**: Convergence tolerance is $ 1 \times 10^{-4} $
+
+### Output
+
+- The method outputs the solution vector \( x \) and the number of iterations taken to converge.
+
+### Edge Cases
+
+- The algorithm may fail to converge if:
+  - The matrix \( A \) is not diagonally dominant.
+  - The maximum number of iterations is reached without convergence.
+- It is advisable to check the diagonal dominance of \( A \) before using the Jacobi method.
+
+...............................................................................................................
+
+## 2.Gauss-Seidel Method
+
+## Overview
+
+The Gauss-Seidel method is an iterative technique used for solving a system of linear equations of the form **Ax = b**. It improves upon the Jacobi method by using the most recently updated values of the solution vector in subsequent calculations, which can lead to faster co
+
+## Algorithm Steps
+
+1. **Input**:
+   - Read the coefficient matrix \( A \) and the constants vector \( b \).
+2. **Diagonal Dominance Check**:
+
+   - Check if the matrix \( A \) is diagonally dominant. If it is not, attempt to modify it to ensure diagonal dominance. If the modification fails, warn the user that the method may not converge.
+
+3. **Initialization**:
+
+   - Initialize the solution vector \( x \) with zeros.
+
+4. **Iteration**:
+
+   - For a maximum number of iterations:
+     - Set a convergence flag to true.
+     - For each variable \( x_i \):
+       - Calculate the sum:
+         $$
+         \text{sum} = b[i] - \sum\_{j \neq i} A[i][j] \cdot x[j]
+         $$
+       - Check for zero or near-zero diagonal elements and handle appropriately.
+       - Update \($ x[i] $ \):
+         $$
+         x[i] = \frac{\text{sum}}{A[i][i]}
+         $$
+       - Check if the change in \( $ x[i] $ \) is above the tolerance level. If so, set the convergence flag to false.
+     - If all updates are within the tolerance, exit the loop.
+
+5. **Convergence Check**:
+   - If the method converges, display the number of iterations taken and the final solution vector. If it does not converge, notify the user.
+
+## Input
+
+- **Matrix \( A \)**: Coefficient matrix (must be square and ideally diagonally dominant).
+- **Vector \( b \)**: Constants vector (the same length as the number of rows in \( A \)).
+- **highest_iter**: Maximum number of iterations (default is 1000).
+- **tol**: Convergence tolerance (default is \($ 1 \times 10^{-10} $\)).
+
+## Output
+
+- The method outputs the solution vector \( x \) and the number of iterations taken to converge.
+
+## Edge Cases
+
+- The algorithm may fail to converge if:
+  - The matrix \( A \) is not diagonally dominant and cannot be modified to achieve dominance.
+  - The maximum number of iterations is reached without convergence.
+- A warning is issued if a zero or near-zero diagonal element is encountered during computation.
+
+...............................................................................................................
+
+## 2. Gauss Elimination Method
+
+### Description
+
+The Gauss Elimination method is a direct algorithm used to solve systems of linear equations. It transforms the system into an upper triangular form and then performs back substitution to find the solution. This method is effective for small to moderate-sized systems.
+
+### Algorithm Steps
+
+1. **Input**:
+
+   - Read the augmented matrix \( A | b \) where \( A \) is the coefficient matrix and \( b \) is the constants vector.
+
+2. **Forward Elimination**:
+
+   - For each variable \( x_i \):
+     - Eliminate the variables below \($ x_i $\) in the column.
+     - Calculate the elimination factor for each row below the pivot row.
+     - Update the rows of the matrix \( A \) and vector \( b \).
+
+3. **Back Substitution**:
+   - Starting from the last variable, compute the values of \($ x $\) by substituting back into the equations.
+
+### Input
+
+- **Matrix \( A \)**: Coefficient matrix (must be square).
+- **Vector \( b \)**: Constants vector (the same length as the number of rows in \( A \)).
+
+### Output
+
+- The method outputs the solution vector \( x \) derived from the back substitution.
+
+...............................................................................................................
+
+## 3. Gauss-Jordan Elimination Method
+
+### Description
+
+The Gauss-Jordan elimination method is an extension of the Gauss elimination method. It reduces the augmented matrix to reduced row echelon form (RREF). This method directly provides the solutions without the need for back substitution.
+
+### Algorithm Steps
+
+1. **Input**:
+
+   - Read the augmented matrix \($ A | b $\).
+
+2. **Normalization**:
+   - For each variable \( $ x_i $ \):
+     - Normalize the pivot row to make the pivot element equal to 1.
+3. **Elimination**:
+   - Eliminate all other entries in the pivot column by subtracting appropriate multiples of the pivot row from the other rows.
+
+### Input
+
+- **Matrix \( A \)**: Coefficient matrix (must be square).
+- **Vector \( b \)**: Constants vector (the same length as the number of rows in \( A \)).
+
+### Output
+
+- The method outputs the solution vector \( b \) which now contains the values of the variables after reaching RREF.
+
+...............................................................................................................
+
+## 4. LU Decomposition
+
+## Overview
+
+This README provides a detailed explanation of the LU Decomposition algorithm and the functions implemented for solving systems of linear equations. The LU Decomposition method is used to factor a matrix \( A \) into two matrices \( L \) (lower triangular) and \( U \) (upper triangular), allowing for efficient solving of the equation \( Ax = b \).
+
+## LU Decomposition Algorithm
+
+LU Decomposition decomposes a given square matrix \( A \) into the product of a lower triangular matrix \( L \) and an upper triangular matrix \( U \):
+
+\[
+A = LU
+\]
+
+### Steps of the Algorithm
+
+1. **Pivoting**:
+   - Check for zero pivots and perform row swapping if necessary to ensure stability.
+2. **Decomposing the Matrix**:
+   - The upper triangular matrix \( U \) is filled by subtracting the contributions from the previously computed values in \( L \) and \( U \).
+   - The lower triangular matrix \( L \) is filled with the appropriate coefficients, ensuring the diagonal elements are set to 1.
+
+### Functions
+
+#### 1. LU_Decomposition
+
+- **Purpose**: To perform LU decomposition of matrix \( A \).
+- **Parameters**:
+  - `vector<vector<double>>& A`: The input matrix \( A \) to be decomposed.
+  - `vector<vector<double>>& L`: The output lower triangular matrix.
+  - `vector<vector<double>>& U`: The output upper triangular matrix.
+  - `int n`: The number of equations (size of the matrix).
+- **Returns**: None. The function modifies \( L \) and \( U \) in place.
+
+#### 2. `forwardSubstitution`
+
+- **Purpose**: To solve the equation \( Ly = b \) using forward substitution.
+- **Parameters**:
+  - `const vector<vector<double>>& L`: The lower triangular matrix.
+  - `const vector<double>& b`: The constants vector.
+  - `int n`: The number of equations.
+- **Returns**: The solution vector \( y \).
+
+#### 3. `backwardSubstitution`
+
+- **Purpose**: To solve the equation \( Ux = y \) using backward substitution.
+- **Parameters**:
+  - `const vector<vector<double>>& U`: The upper triangular matrix.
+  - `const vector<double>& y`: The solution vector from the forward substitution.
+  - `int n`: The number of equations.
+- **Returns**: The solution vector \( x \).
+
+#### 4. `L_U_factorization`
+
+- **Purpose**: To handle user input, perform LU decomposition, and print the results.
+- **Parameters**: None.
+- **Returns**: None. This function manages the entire workflow from input to output.
+
+#### 5. `printMatrix`
+
+- **Purpose**: To print the augmented matrix \( [A | b] \).
+- **Parameters**:
+  - `const vector<vector<double>>& A`: The coefficient matrix.
+  - `const vector<double>& b`: The constants vector.
+- **Returns**: None. This function outputs the augmented matrix to the console.
+
+
+
+
+### So, We can Conclude that
+
+We organized our application in a suitable manner as we preferred. For the linear equations section, our implementation of code is working fine in solving a system of at l
