@@ -46,16 +46,7 @@ The Jacobi method is an iterative algorithm used to solve a system of linear equ
    - Start with an initial guess for the solution vector \( x \) (commonly \( x = 0 \)).
 2. **Iteration**:
 
-   - For each variable
-
-     $$
-     x_i:
-
-       x_i^{(k+1)} = \frac{1}{A_{ii}} \left( b_i - \sum_{j \neq i} A_{ij} x_j^{(k)} \right)
-
-
-     $$
-
+   - For each variable x(i)  update x(i)^(k+1) from the k-th iteration using formula : x(i) = 1/a(ii)*{b(i)- sumof(a(i,j)*x(j)^k)} where i!=j.
    - Repeat the process until convergence (i.e., until the change in \( x \) is below a specified tolerance).
 
 3. **Convergence Check**:
@@ -66,7 +57,7 @@ The Jacobi method is an iterative algorithm used to solve a system of linear equ
 - **Matrix \( A \)**: Coefficient matrix (must be square and diagonally dominant for guaranteed convergence).
 - **Vector \( b \)**: Constants vector (the same length as the number of rows in \( A \)).
 - **max_iterations**: Maximum number of iterations (default is 1000).
-- **tolerance**: Convergence tolerance is $ 1 \times 10^{-4} $
+- **tolerance**: Convergence tolerance is 0.0001 .
 
 ### Output
 
