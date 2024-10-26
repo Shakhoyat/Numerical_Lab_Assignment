@@ -1,3 +1,16 @@
+#  Collaborators
+
+### Al Mubtasim Preom ([nashokota](https://www.github.com/nashokota))- 2107014
+
+### Shakhoyat Rahman Shujon ([Shakhhoyat](https://www.github.com/Shakoyat))- 2107104
+
+### Sree. Shuvo Kumar Joy ([commoner02](https://www.github.com/commoner02)) - 2107116
+
+
+
+<br/>
+
+
 # Numerical Methods Console Application
 
 ## Overview
