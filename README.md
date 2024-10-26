@@ -4,6 +4,29 @@
 
 Welcome to the Numerical Methods Console Application! This project provides various numerical methods for solving mathematical problems, making it a versatile tool for anyone interested in numerical analysis.
 
+## Table of Contents
+
+[Application Structure](#application-structure)
+
+- [1. Solution of Linear Equations](#solution-of-linear-equations)
+  - [a. Jacobi Iterative Method](#jacobi-iterative-method)
+  - [b. Gauss-Seidel Iterative Method](#gauss-seidel-iterative-method)
+  - [c. Gauss Elimination](#gauss-elimination)
+  - [d. Gauss-Jordan Elimination](#gauss-jordan-elimination)
+  - [e. LU Factorization](#lu-factorization)
+- [2. Solution of Non-linear Equations](#solution-of-non-linear-equations)
+  - [a. Bisection Method](#bisection-method)
+  - [b. False Position Method](#false-position-method)
+  - [c. Secant Method](#secant-method)
+  - [d. Newton-Raphson Method](#newton-raphson-method)
+- [3. Solution of Differential Equations](#solution-of-differential-equations)
+  - [a. Runge-Kutta Method](#runge-kutta-method)
+- [4. Matrix Inversion](#matrix-inversion)
+
+---
+
+## Application Structure
+
 ### Key Features
 
 1. **Solve Linear Equations**
@@ -30,11 +53,13 @@ Welcome to the Numerical Methods Console Application! This project provides vari
 4. **Matrix Inversion**
    - **Gauss-Jordan Elimination**: Finds the inverse of a matrix by transforming it into a simpler form.
 
+### Solution of Linear Equations
+
 ---
 
-## Linear Algorithmic Details
+### Jacobi Iterative Method
 
-## 1. Jacobi Iterative Method
+---
 
 ### Description
 
@@ -70,9 +95,11 @@ The Jacobi method is an iterative algorithm used to solve a system of linear equ
   - The maximum number of iterations is reached without convergence.
 - It is advisable to check the diagonal dominance of \( A \) before using the Jacobi method.
 
-...............................................................................................................
+---
 
-## 2.Gauss-Seidel Method
+### Gauss-Seidel Iterative Method
+
+---
 
 ## Overview
 
@@ -124,9 +151,11 @@ The Gauss-Seidel method is an iterative technique used for solving a system of l
   - The maximum number of iterations is reached without convergence.
 - A warning is issued if a zero or near-zero diagonal element is encountered during computation.
 
-...............................................................................................................
+---
 
-## 2. Gauss Elimination Method
+### Gauss Elimination
+
+---
 
 ### Description
 
@@ -157,9 +186,11 @@ The Gauss Elimination method is a direct algorithm used to solve systems of line
 
 - The method outputs the solution vector \( x \) derived from the back substitution.
 
-...............................................................................................................
+---
 
-## 3. Gauss-Jordan Elimination Method
+### Gauss-Jordan Elimination
+
+---
 
 ### Description
 
@@ -186,9 +217,11 @@ The Gauss-Jordan elimination method is an extension of the Gauss elimination met
 
 - The method outputs the solution vector \( b \) which now contains the values of the variables after reaching RREF.
 
-...............................................................................................................
+---
 
-## 4. LU Decomposition
+### LU Factorization
+
+---
 
 ## Overview
 
@@ -252,11 +285,13 @@ LU Decomposition decomposes a given square matrix \( A \) into the product of a 
   - `const vector<double>& b`: The constants vector.
 - **Returns**: None. This function outputs the augmented matrix to the console.
 
+### Solution of Non-linear Equations
+
 ---
 
-## Non-Linear Algorithmic Details
+### Bisection Method
 
-### 1. Bisection Method
+---
 
 This method finds a root of the function by repeatedly narrowing down an interval where a sign change occurs.
 
@@ -268,9 +303,12 @@ This method finds a root of the function by repeatedly narrowing down an interva
    - If \( $f(a)$ \) and \($f(\text{midpoint})$ \) have opposite signs, set \($b = \text{midpoint}$\).
    - Otherwise, set \($a = \text{midpoint}$\).
 5. **Repeat**: Continue this process until the interval is sufficiently small or the maximum number of iterations is reached
-- - -
 
-### 2. False Position Method
+---
+
+### False Position Method
+
+---
 
 This method is a faster alternative to the Bisection Method, using linear interpolation to improve convergence speed.
 
@@ -278,12 +316,15 @@ This method is a faster alternative to the Bisection Method, using linear interp
 2. **Linear Interpolation**: Calculate the new guess for the root:
    $$\text{guess} = \frac{a \cdot f(b) - b \cdot f(a)}{f(b) - f(a)}$$
 3. **Update Interval**: Check where the sign change occurs:
-   - If $f(\text{guess})$ has the same sign as $f(a)$, set a = guess 
+   - If $f(\text{guess})$ has the same sign as $f(a)$, set a = guess
    - Otherwise, set $b = \text{guess}$.
 4. **Convergence Check**: Stop if $|f(\text{guess})| < kTolerance$.
-- - -
 
-### 3. Secant Method
+---
+
+### Secant Method
+
+---
 
 The Secant Method approximates roots using secant lines instead of derivatives.
 
@@ -292,9 +333,12 @@ The Secant Method approximates roots using secant lines instead of derivatives.
    $$x_2 = x_1 - \frac{f(x_1) \cdot (x_1 - x_0)}{f(x_1) - f(x_0)}$$
 3. **Update**: Move \($x_0$\) to \($x_1$\) and \($x_1$\) to \($x_2$\).
 4. **Convergence Check**: Stop if \($|x_2 - x_1| < kTolerance$\).
-- - -
 
-### 4. Newton-Raphson Method
+---
+
+### Newton-Raphson Method
+
+---
 
 This method is powerful for finding roots but requires the derivative of the function.
 
@@ -311,11 +355,13 @@ This method is powerful for finding roots but requires the derivative of the fun
 - **Secant Method**: Ensures that the initial guesses $x_0$ and $x_1$ are not the same to prevent errors.
 - **Newton-Raphson Method**: Checks if $$f'(x_n)$$ is too close to zero to avoid division errors.
 
+### Solution of Differential Equations
+
 ---
 
-# Solution Differential Eqaution
+### Runge-Kutta Method
 
-1. ## Runge-Kutta Method
+---
 
 Here is implementation of the classic fourth-order Runge-Kutta method (RK4) for solving ordinary differential equations. This method uses a weighted average of four increments to estimate the solution with higher accuracy.
 
@@ -334,7 +380,11 @@ The main steps of the RK4 method are:
 
 This iterative process provides a highly accurate approximation of the solution to the differential equation.
 
-# Matrix Inversion
+---
+
+### Matrix Inversion
+
+---
 
 For matrix inversion, the implemententation was done by the Gauss-Jordan Elimination method, which is straightforward and effective.
 
@@ -348,4 +398,4 @@ While this method has a time complexity of \( O(n^3) \) (with \( n \) being the 
 
 ### So, We can Conclude that
 
-We organized our application in a suitable manner as we preferred. For the linear equations section, our implementation of code is working fine in solving a system of at l
+We organized our application in a suitable manner as we preferred. For the linear,non-linear and differential equations section.Our implementation of code is working fine in solving a Matrix Inversion in step by step manner ;)
