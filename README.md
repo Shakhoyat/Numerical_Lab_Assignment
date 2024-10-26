@@ -46,7 +46,7 @@ The Jacobi method is an iterative algorithm used to solve a system of linear equ
    - Start with an initial guess for the solution vector \( x \) (commonly \( x = 0 \)).
 2. **Iteration**:
 
-   - For each variable x(i)  update x(i)^(k+1) from the k-th iteration using formula : x(i) = 1/a(ii)*{b(i)- sumof(a(i,j)*x(j)^k)} where i!=j.
+   - For each variable x(i) update x(i)^(k+1) from the k-th iteration using formula : x(i) = 1/a(ii)*{b(i)- sumof(a(i,j)*x(j)^k)} where i!=j.
    - Repeat the process until convergence (i.e., until the change in \( x \) is below a specified tolerance).
 
 3. **Convergence Check**:
@@ -254,9 +254,80 @@ A = LU
   - `const vector<double>& b`: The constants vector.
 - **Returns**: None. This function outputs the augmented matrix to the console.
 
+---
 
+## Non-Linear Algorithmic Details
 
-# Solution Differential Eqaution 
+### 1. Bisection Method
+
+This method finds a root of the function by repeatedly narrowing down an interval where a sign change occurs.
+
+1. **Check Interval**: Ensure that the function values at the endpoints `f(a)` and `f(b)` have opposite signs (`f(a) * f(b) < 0`). This indicates that a root lies between `a` and `b`.
+2. **Calculate Midpoint**: Compute the midpoint of the interval:
+   $$
+   \text{midpoint} = \frac{a + b}{2}
+   $$
+3. **Check Midpoint**: If \($ f(\text{midpoint})$ \) is zero, you've found the root!
+4. **Narrow the Interval**: Determine which half of the interval contains the root:
+   - If \( $ f(a) $ \) and \( $f(\text{midpoint}) $ \) have opposite signs, set \($ b = \text{midpoint} $\).
+   - Otherwise, set \( $ a = \text{midpoint} $ \).
+5. **Repeat**: Continue this process until the interval is sufficiently small or the maximum number of iterations is reached.
+   ...............................................................................................................
+
+### 2. False Position Method
+
+This method is a faster alternative to the Bisection Method, using linear interpolation to improve convergence speed.
+
+1. **Check Interval**: Verify that `f(a)` and `f(b)` have opposite signs.
+2. **Linear Interpolation**: Calculate the new guess for the root:
+   $$
+   \text{guess} = \frac{a \cdot f(b) - b \cdot f(a)}{f(b) - f(a)}
+   $$
+3. **Update Interval**: Check where the sign change occurs:
+   - If \($ f(\text{guess}) $ \) has the same sign as \($ f(a)$ \), set $ a = \text{guess} $.
+   - Otherwise, set $ b = \text{guess} $.
+4. **Convergence Check**: Stop if $ |f(\text{guess})| < kTolerance $.
+   ...............................................................................................................
+
+### 3. Secant Method
+
+The Secant Method approximates roots using secant lines instead of derivatives.
+
+1. **Initial Guesses**: Start with two initial values, $ x_0 $ and $ x_1 $.
+2. **Calculate Next Approximation**:
+   $$
+   x_2 = x_1 - \frac{f(x_1) \cdot (x_1 - x_0)}{f(x_1) - f(x_0)}
+   $$
+3. **Update**: Move \( $x_0$ \) to \($ x_1$ \) and \($ x_1$ \) to \($ x_2$ \).
+4. **Convergence Check**: Stop if \($ |x_2 - x_1| < kTolerance $ \).
+   ...............................................................................................................
+
+### 4. Newton-Raphson Method
+
+This method is powerful for finding roots but requires the derivative of the function.
+
+1. **Derivative Requirement**: Ensure you have the function's derivative \($ f'(x) $\).
+2. **Iteration Formula**:
+   $$
+   x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+   $$
+3. **Update**: Set
+   $$
+    x_n = x_{n+1}
+   $$
+4. **Convergence Check**: Stop if $$
+ |x\_{n+1} - x_n| < kTolerance $$
+
+### Special Case handling for Non-Linear Equations
+
+- **Bisection and False Position Methods**: If $$ f(a) \cdot f(b) \geq 0 $$ the program outputs a message stating no root exists in that interval and terminates.
+- **Secant Method**: Ensures that the initial guesses $ x_0$ and $x_1$ are not the same to prevent errors.
+- **Newton-Raphson Method**: Checks if $$ f'(x_n)$$ is too close to zero to avoid division errors.
+
+---
+
+# Solution Differential Eqaution
+
 1. ## Runge-Kutta Method
 
 Here is implementation of the classic fourth-order Runge-Kutta method (RK4) for solving ordinary differential equations. This method uses a weighted average of four increments to estimate the solution with higher accuracy.
@@ -264,13 +335,13 @@ Here is implementation of the classic fourth-order Runge-Kutta method (RK4) for 
 The main steps of the RK4 method are:
 
 **a. Calculate the initial conditions**: Determine the starting values for \( x \) and \( y \).<br/>
-**b. Estimate the four increments (slopes)**:  
+**b. Estimate the four increments (slopes)**:
 
-   - \( k1 \): Calculate the slope at the initial point.
-   - \( k2 \): Calculate the slope at the midpoint using \( k1 \).
-   - \( k3 \): Calculate another midpoint slope using \( k2 \).
-   - \( k4 \): Calculate the slope at the end of the interval using \( k3 \).
-     
+- \( k1 \): Calculate the slope at the initial point.
+- \( k2 \): Calculate the slope at the midpoint using \( k1 \).
+- \( k3 \): Calculate another midpoint slope using \( k2 \).
+- \( k4 \): Calculate the slope at the end of the interval using \( k3 \).
+
 **c. Combine the slopes**: Use a weighted average of these four slopes to estimate the value of \( y \) at the next step.<br/>
 **d. Repeat the process**: Move to the next interval and repeat the calculations to trace out the entire path of the solution.
 
@@ -287,7 +358,6 @@ Here's the process:
 **c. Simultaneous Transformation**: While the original matrix is being transformed into an identity matrix, the identity matrix undergoes the same row operations, gradually turning into the inverse of the original matrix.<br/>
 
 While this method has a time complexity of \( O(n^3) \) (with \( n \) being the order of the square matrix), it is intuitive and highly effective for many practical applications, even if it's not the fastest option for very large matrices.
-
 
 ### So, We can Conclude that
 
