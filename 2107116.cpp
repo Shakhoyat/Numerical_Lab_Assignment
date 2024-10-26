@@ -81,7 +81,7 @@ void rungeKutta() {
         cout << x0 << "\t" << y << endl; // Show x and y at every step
     }
 
-    cout<<" At x = " << x << ",  y = " << y << endl;
+    cout<<"\nAt x = " << x << ",  y = " << y << endl;
 }
 
 
@@ -185,7 +185,7 @@ void matrixInverse() {
 
 int shuvo_main(int c) {
     if(c==3){
-       cout<<"\n 1.Runge-Kutta Method"<<endl;
+       cout<<"\n1.Runge-Kutta Method"<<endl;
        rungeKutta();
     }
     if(c==4){
