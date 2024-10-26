@@ -7,7 +7,7 @@ using namespace std;
 
 // Function to perform RK4 method
 void rungeKutta() {
-    cout<<"Equation List"<<endl;
+    cout<<"\nEquation List"<<endl;
     cout << "1. a*sin(bx)" << endl;
     cout << "3. a*sin(bx) + a*cos(bx)" << endl;
     cout << "4. a*e^x" << endl;
@@ -181,7 +181,7 @@ void matrixInverse() {
 
 int shuvo_main(int c) {
     if(c==3){
-       cout<<"1.Runge-Kutta Method"<<endl;
+       cout<<"\n1.Runge-Kutta Method"<<endl;
        rungeKutta();
     }
     if(c==4){
