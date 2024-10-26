@@ -111,7 +111,7 @@ The Gauss-Seidel method is an iterative technique used for solving a system of l
 - **Matrix \( A \)**: Coefficient matrix (must be square and ideally diagonally dominant).
 - **Vector \( b \)**: Constants vector (the same length as the number of rows in \( A \)).
 - **highest_iter**: Maximum number of iterations (default is 1000).
-- **tol**: Convergence tolerance (default is \($ 1 \times 10^{-10} $\)).
+- **tol**: Convergence tolerance 0.0001 .
 
 ## Output
 
