@@ -141,12 +141,12 @@ The Gauss Elimination method is a direct algorithm used to solve systems of line
 2. **Forward Elimination**:
 
    - For each variable \( x_i \):
-     - Eliminate the variables below \($ x_i $\) in the column.
+     - Eliminate the variables below \($x_i$\) in the column.
      - Calculate the elimination factor for each row below the pivot row.
      - Update the rows of the matrix \( A \) and vector \( b \).
 
 3. **Back Substitution**:
-   - Starting from the last variable, compute the values of \($ x $\) by substituting back into the equations.
+   - Starting from the last variable, compute the values of \($x$\) by substituting back into the equations.
 
 ### Input
 
@@ -169,10 +169,10 @@ The Gauss-Jordan elimination method is an extension of the Gauss elimination met
 
 1. **Input**:
 
-   - Read the augmented matrix \($ A | b $\).
+   - Read the augmented matrix \($A | b$\).
 
 2. **Normalization**:
-   - For each variable \( $ x_i $ \):
+   - For each variable \( $x_i$ \):
      - Normalize the pivot row to make the pivot element equal to 1.
 3. **Elimination**:
    - Eliminate all other entries in the pivot column by subtracting appropriate multiples of the pivot row from the other rows.
@@ -198,9 +198,7 @@ This README provides a detailed explanation of the LU Decomposition algorithm an
 
 LU Decomposition decomposes a given square matrix \( A \) into the product of a lower triangular matrix \( L \) and an upper triangular matrix \( U \):
 
-\[
-A = LU
-\]
+\[A = LU\]
 
 ### Steps of the Algorithm
 
