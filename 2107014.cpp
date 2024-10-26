@@ -111,15 +111,15 @@ bool make_diag_dominant(vector<vector<double>>& A, vector<double>& b) {
     return is_diag_dominant(A);
 }
 
+
 // Jacobi method
 void jacobiMethod() {
     int n;
     cout << "Enter the number of variables: ";
     cin >> n;
-    if(n<1)
-    {
-          cout << "Insufficient variables , check again and input ";
-        return ;
+    if (n != 5) {  // Ensure it's exactly 5 variables
+        cout << "This method requires exactly 5 variables." << endl;
+        return;
     }
 
     vector<vector<double>> A(n, vector<double>(n));
@@ -165,7 +165,6 @@ void jacobiMethod() {
                 }
             }
 
-            
             if (fabs(A[i][i]) < 1e-9) {
                 cout << "\nError: Zero or near-zero diagonal element at row " << i + 1 << "." << endl;
                 return;
@@ -173,8 +172,7 @@ void jacobiMethod() {
 
             x[i] = sum / A[i][i]; 
 
-            if (fabs(x[i] - x_old[i]) > tol)
-             {
+            if (fabs(x[i] - x_old[i]) > tol) {
                 converged = false;
             }
 
@@ -206,6 +204,11 @@ void gaussSeidelMethod() {
     vector<double> b;
     inputMatrix(n, A, b);
 
+    if (n != 5) {  // Ensure it's exactly 5 variables
+        cout << "This method requires exactly 5 variables." << endl;
+        return;
+    }
+
     if (!is_diag_dominant(A)) {
         cout << "Warning: The matrix is not diagonally dominant. Attempting to make it diagonally dominant..." << endl;
         if (!make_diag_dominant(A, b)) {
@@ -236,7 +239,6 @@ void gaussSeidelMethod() {
                 }
             }
 
-        
             if (fabs(A[i][i]) < 1e-9) {
                 cout << "\nError: Zero or near-zero diagonal element encountered at row " << i + 1 << "." << endl;
                 return;
@@ -268,6 +270,7 @@ void gaussSeidelMethod() {
     }
     cout << endl;
 }
+
 
 // Gauss Elimination Method
 void gaussElimination() {
