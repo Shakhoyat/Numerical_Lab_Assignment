@@ -188,6 +188,5 @@ int main() {
     if(c==4){
         matrixInverse();
     }
-    
     return 0;
 }
