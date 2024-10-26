@@ -96,14 +96,10 @@ The Gauss-Seidel method is an iterative technique used for solving a system of l
      - Set a convergence flag to true.
      - For each variable \( x_i \):
        - Calculate the sum:
-         $$
-         \text{sum} = b[i] - \sum\_{j \neq i} A[i][j] \cdot x[j]
-         $$
+         $$\text{sum} = b[i] - \sum\_{j \neq i} A[i][j] \cdot x[j]$$
        - Check for zero or near-zero diagonal elements and handle appropriately.
        - Update \($ x[i] $ \):
-         $$
-         x[i] = \frac{\text{sum}}{A[i][i]}
-         $$
+         $$x[i] = \frac{\text{sum}}{A[i][i]}$$
        - Check if the change in \( $ x[i] $ \) is above the tolerance level. If so, set the convergence flag to false.
      - If all updates are within the tolerance, exit the loop.
 
