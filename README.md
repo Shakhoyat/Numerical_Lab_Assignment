@@ -2,7 +2,7 @@
 
 ### Al Mubtasim Preom ([nashokota](https://www.github.com/nashokota))- 2107014
 
-### Shakhoyat Rahman Shujon ([Shakhhoyat](https://www.github.com/Shakoyat))- 2107104
+### Shakhoyat Rahman Shujon ([Shakhoyat](https://www.github.com/Shakhoyat))- 2107104
 
 ### Sree. Shuvo Kumar Joy ([commoner02](https://www.github.com/commoner02)) - 2107116
 
